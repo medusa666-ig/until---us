@@ -1,0 +1,22 @@
+
+*{box-sizing:border-box}body{
+margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
+background:linear-gradient(#1d2742,#0c1020);color:#fff;overflow:hidden;
+display:flex;justify-content:center;align-items:center;height:100vh}
+#stars{position:fixed;inset:0;background-image:radial-gradient(white 1px,transparent 1px);
+background-size:50px 50px;opacity:.35;animation:drift 90s linear infinite}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(50px)}}
+.card{backdrop-filter:blur(18px);background:rgba(255,255,255,.08);
+padding:36px;border-radius:28px;max-width:720px;width:92%;text-align:center;
+box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.moon{font-size:42px}
+h1{margin:10px 0 4px}
+.subtitle{opacity:.8}
+#countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+#countdown span{display:block;font-size:44px;font-weight:700}
+#countdown small{opacity:.75}
+.progress{height:12px;background:rgba(255,255,255,.15);border-radius:999px;overflow:hidden}
+#bar{height:100%;width:0;background:#f6d9a5}
+button{margin-top:24px;padding:12px 22px;border:none;border-radius:999px;
+background:#fff;color:#222;font-size:16px;cursor:pointer}
+.note{margin-top:18px;opacity:.95;font-style:italic;min-height:24px}
