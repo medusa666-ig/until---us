@@ -1,7 +1,12 @@
 
 *{box-sizing:border-box}body{
 margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
-background:linear-gradient(#1d2742,#0c1020);color:#fff;overflow:hidden;
+background-image:url("back.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+color:#fff;
+overflow:hidden;
 display:flex;justify-content:center;align-items:center;height:100vh}
 #stars{position:fixed;inset:0;background-image:radial-gradient(white 1px,transparent 1px);
 background-size:50px 50px;opacity:.35;animation:drift 90s linear infinite}
