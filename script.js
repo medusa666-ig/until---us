@@ -29,9 +29,57 @@ const notes = [
 "Mission: дочекатися Владіка. Status: in progress."
 ];
 
-document.getElementById('noteBtn').onclick=()=>{
- const day=Math.floor((Date.now()/86400000));
- document.getElementById('note').textContent=notes[day%notes.length];
+ocument.getElementById("noteBtn").onclick = () => {
+
+    // ключ сьогоднішнього дня
+    const today = new Date();
+    const dayKey =
+        today.getFullYear() + "-" +
+        (today.getMonth() + 1) + "-" +
+        today.getDate();
+
+    // якщо для сьогодні вже вибрана фраза — показуємо її
+    let todayIndex = localStorage.getItem("todayNote-" + dayKey);
+
+    if (todayIndex === null) {
+
+        // список вже використаних фраз
+        let used = JSON.parse(localStorage.getItem("usedNotes") || "[]");
+
+        // якщо всі використані — починаємо новий цикл
+        if (used.length >= notes.length) {
+            used = [];
+        }
+
+        // шукаємо доступні фрази
+        const available = [];
+
+        for (let i = 0; i < notes.length; i++) {
+            if (!used.includes(i)) {
+                available.push(i);
+            }
+        }
+
+        // випадкова серед доступних
+        todayIndex =
+            available[Math.floor(Math.random() * available.length)];
+
+        used.push(todayIndex);
+
+        localStorage.setItem(
+            "usedNotes",
+            JSON.stringify(used)
+        );
+
+        localStorage.setItem(
+            "todayNote-" + dayKey,
+            todayIndex
+        );
+    }
+
+    document.getElementById("note").textContent =
+        notes[todayIndex];
+
 };
 
 function tick(){
